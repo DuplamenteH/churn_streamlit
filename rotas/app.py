@@ -9,7 +9,7 @@ data_pre = Data_Prepared()
 df = pd.read_csv('https://raw.githubusercontent.com/DuplamenteH/machine-learning-projects/main/Churn/dados/customer-churn-prediction-2020/train.csv')
 df.drop(columns=['churn'],inplace=True);
 #load model
-model = pickle.load(open('./models/churn_randomFlorest.pkl','rb'))
+model = pickle.load(open('./churn_randomFlorest.pkl','rb'))
 
 
 #predict
