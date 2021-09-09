@@ -6,8 +6,8 @@ import pandas as pd
 
 class Data_Prepared ():
     def __init__(self):
-        self.le = pickle.load(open('label_encoder.pkl','rb'))
-        self.mms = pickle.load(open('mms.pkl','rb'))
+        self.le = pickle.load(open('rotas/processing/label_encoder.pkl','rb'))
+        self.mms = pickle.load(open('rotas/processing/mms.pkl','rb'))
         #api/api_v1/model/mms.pkl
         #self.simp = SimpleImputer(strategy="mean")
 
