@@ -8,7 +8,7 @@ import streamlit as st
 df = pd.read_csv('https://raw.githubusercontent.com/DuplamenteH/machine-learning-projects/main/Churn/dados/customer-churn-prediction-2020/train.csv')
 df.drop(columns=['churn'],inplace=True);
 #load model
-model = pickle.load(open('churn_randomFlorest.pkl','rb'))
+model = pickle.load(open('rotas/processing/churn_randomFlorest.pkl','rb'))
 
 
 data_pre = Data_Prepared()
