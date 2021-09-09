@@ -8,8 +8,13 @@ import streamlit as st
 df = pd.read_csv('https://raw.githubusercontent.com/DuplamenteH/machine-learning-projects/main/Churn/dados/customer-churn-prediction-2020/train.csv')
 df.drop(columns=['churn'],inplace=True);
 #load model
-model = pickle.load(open('churn_randomFlorest.pkl','rb'))
 
+
+def get_model():
+    model = pickle.load(open('churn_randomFlorest.pkl','rb'))
+    return model
+
+modelo = get_model()
 
 data_pre = Data_Prepared()
 #predict
@@ -18,7 +23,7 @@ def predict(df_raw:DataFrame):
     df_ = data_pre.get_remove_cols(colunas=colunas_remover,df = df_raw)
     df_final = data_pre.get_df_transform(df_)
 
-    pred = model.predict(df_final)
+    pred = modelo.predict(df_final)
     df_final['predicao'] = pred
 
 
@@ -31,7 +36,7 @@ def predict_prob(df_raw:DataFrame):
     df_ = data_pre.get_remove_cols(colunas=colunas_remover,df = df_raw)
     df_final = data_pre.get_df_transform(df_)
 
-    prob = model.predict_proba(df_final)
+    prob = modelo.predict_proba(df_final)
     aux1 = prob[0][0]
     aux2 = prob[0][1]
 
