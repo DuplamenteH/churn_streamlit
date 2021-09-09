@@ -1,7 +1,7 @@
 from typing import List
 from pandas.core.frame import DataFrame
 import pickle
-from sklearn.impute import SimpleImputer
+#from sklearn.impute import SimpleImputer
 import pandas as pd
 
 class Data_Prepared ():
@@ -9,7 +9,7 @@ class Data_Prepared ():
         self.le = pickle.load(open('./models/label_encoder.pkl','rb'))
         self.mms = pickle.load(open('./models/mms.pkl','rb'))
         #api/api_v1/model/mms.pkl
-        self.simp = SimpleImputer(strategy="mean")
+        #self.simp = SimpleImputer(strategy="mean")
 
     def get_df_transform(self,df:DataFrame):
         """
@@ -27,13 +27,13 @@ class Data_Prepared ():
 
 
         print('[INFO]--> Verificando se há dados faltantes.')
-        if df.isnull().sum().sum()!=0:
-            print("[INFO]--> Os dados apresentam valores faltantes.")
-            print("[INFO]--> Fazendo as transformações dos devido dados faltante ")
-            df = self.simp.fit_transform(df)
-            print("[INFO]--> Dados faltantes foram substituidos por a media de sua coluna")
-        else:
-            print("[INFO]--> Não tem dados faltantes")
+        #if df.isnull().sum().sum()!=0:
+        #    print("[INFO]--> Os dados apresentam valores faltantes.")
+        #    print("[INFO]--> Fazendo as transformações dos devido dados faltante ")
+        #    df = self.simp.fit_transform(df)
+        #    print("[INFO]--> Dados faltantes foram substituidos por a media de sua coluna")
+        #else:
+        #    print("[INFO]--> Não tem dados faltantes")
         
         print("[INFO]--> deixando os dados em uma escala de 0 a 1")
         df_mms = self.mms.transform(df)
