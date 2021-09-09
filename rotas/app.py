@@ -5,13 +5,13 @@ from processing.data_prep import Data_Prepared
 import streamlit as st
 
 
-data_pre = Data_Prepared()
 df = pd.read_csv('https://raw.githubusercontent.com/DuplamenteH/machine-learning-projects/main/Churn/dados/customer-churn-prediction-2020/train.csv')
 df.drop(columns=['churn'],inplace=True);
 #load model
 model = pickle.load(open('churn_randomFlorest.pkl','rb'))
 
 
+data_pre = Data_Prepared()
 #predict
 def predict(df_raw:DataFrame):
     colunas_remover = ['state','area_code']
